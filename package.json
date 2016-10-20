@@ -2,7 +2,7 @@
     "name": "asciidoctor-vscode",
     "displayName": "AsciiDoc Text Previewer",
     "description": "An extension to preview AsciiDoc files while typing them",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "publisher": "joaompinto",
     "author": "João Pinto",
     "license": "MIT",
@@ -23,8 +23,7 @@
         "vscode": "^0.10.8"
     },
     "categories": [
-        "Languages",
-        "Other"
+        "Languages"
     ],
     "activationEvents": [
         "onCommand:adoc.preview",
@@ -39,10 +38,22 @@
                     "AsciiDoc(tor)"
                 ],
                 "extensions": [
-                    ".adoc"
+                    ".adoc",
+                    ".asciidoc"
                 ]
             }
         ],
+        "configuration": {
+            "type": "object",
+            "title": "AsciiDoc Option Configuration",
+            "properties": {
+                "AsciiDoc.html_generator": {
+                    "type": "string",
+                    "default": "asciidoctor -o-",
+                    "description": "command to be used for the HTML generation"
+                }
+            }
+        },
         "keybindings": [
             {
                 "command": "adoc.preview",

@@ -85,7 +85,7 @@ class ADocDocumentContentProvider implements TextDocumentContentProvider {
     private createADocSnippet(): string | Thenable<string> {
         let editor = window.activeTextEditor;
         if (!(editor.document.languageId === "asciidoc")) {
-            return this.errorSnippet("Active editor doesn't show a RST document - no properties to preview.");
+            return this.errorSnippet("Active editor doesn't show an AsciiDoc document - no properties to preview.");
         }
         return this.preview(editor);
     }
@@ -135,14 +135,8 @@ class ADocDocumentContentProvider implements TextDocumentContentProvider {
         return new Promise<string>((resolve, reject) => {
             var text = doc.getText();
             let tmpobj = tmp.fileSync();
-            fs.write(tmpobj.fd, text, 0);                        
-            let cmd = [
-                "asciidoctor",
-                "-d",
-                "book",
-                "-o-",
-                tmpobj.name
-            ].join(" ");
+            var cmd = workspace.getConfiguration('AsciiDoc').get('html_generator') +" " +tmpobj.name;
+            fs.write(tmpobj.fd, text, 0); 
             exec(cmd, (error: Error, stdout: Buffer, stderr: Buffer) => {
                 tmpobj.removeCallback();
                 if (error) {
