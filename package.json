@@ -2,7 +2,7 @@
     "name": "asciidoctor-vscode",
     "displayName": "AsciiDoc Text Previewer",
     "description": "An extension to preview AsciiDoc files while typing them",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "publisher": "joaompinto",
     "author": "João Pinto",
     "license": "MIT",

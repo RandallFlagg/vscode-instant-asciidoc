@@ -7,10 +7,10 @@ setup the html_generator for the extension:
 ```
 You will also need the appropriate tool depending on the diagram type.
 
-[ditaa, ditaa, png]
+[ditaa]
 ....
                    +-------------+
-                   | Asciidoctor |-------+
+                   | xxx  |-----------+ 
                    |   diagram   |       |
                    +-------------+       | PNG out
                        ^                 |

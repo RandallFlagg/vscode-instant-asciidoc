@@ -7,18 +7,12 @@ The extension can be activate in two ways
 * Toggle Preview - `ctrl+shift+r`
 * Open Preview to the Side - `ctrl+k r`
 
+![alt](images/simple.png)
+
 
 ## Prerequisites
 
 You need to [**install AsciiDoctor**](http://asciidoctor.org/docs/install-toolchain/ ) - A fast text processor & publishing toolchain for converting AsciiDoc to HTML5, DocBook & more.
-
-## How to install
-```
-press F1, then type:
->ext inst
-search for AsciiDoc
-click on the AsciiDoc Text Previewer "Install" button , then click the "Enable" button
-```
 
 ## How to build and install from source (Linux)
 ```
