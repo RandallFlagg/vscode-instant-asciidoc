@@ -133,9 +133,10 @@ class ADocDocumentContentProvider implements TextDocumentContentProvider {
     public preview(editor: TextEditor): Thenable<string> {
         let doc = editor.document;
         return new Promise<string>((resolve, reject) => {
-            var text = doc.getText();
-            let tmpobj = tmp.fileSync();
-            var cmd = workspace.getConfiguration('AsciiDoc').get('html_generator') +" " +tmpobj.name;
+            let text = doc.getText();
+            let documentPath = path.dirname(editor.document.fileName);
+            let tmpobj = tmp.fileSync({postfix: '.adoc', dir: documentPath});
+            let cmd = workspace.getConfiguration('AsciiDoc').get('html_generator') +" " +tmpobj.name;
             fs.write(tmpobj.fd, text, 0); 
             exec(cmd, (error: Error, stdout: Buffer, stderr: Buffer) => {
                 tmpobj.removeCallback();
